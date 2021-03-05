@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+    
+        int size= nums.size();
+        if(size==0){return{};}
+        
+        vector<int> res;
+        vector<int> arr(size+1, 0);
+        
+        for(int i=1 ; i<size+1; i++){
+            
+            arr[nums[i-1]]++;
+            
+            if(arr[nums[i-1]]>1){
+                res.push_back(nums[i-1]);
+            }
+            
+        }
+        
+        return res;
+    }
+};
